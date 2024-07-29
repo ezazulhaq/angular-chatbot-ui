@@ -1,0 +1,16 @@
+<div class="chat-container">
+    <h1>Ollama Chatbot</h1>
+    <div class="messages">
+        @for (message of messages; track $index) {
+        <div [class]="message.isUser ? 'user-message' : 'bot-message'">
+            <strong>{{ message.isUser ? 'You:' : 'Bot:' }}</strong> {{
+            message.text }}
+        </div>
+        }
+    </div>
+    <div class="input-container">
+        <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()"
+            placeholder="Type your message...">
+        <button (click)="sendMessage()">Send</button>
+    </div>
+</div>
