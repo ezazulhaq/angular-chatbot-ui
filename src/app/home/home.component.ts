@@ -22,11 +22,21 @@ export class HomeComponent {
       this.messages.push({ text: this.userInput, isUser: true });
       this.chatService.sendMessage(this.userInput).subscribe({
         next: (response) => {
-          this.messages.push({ text: response.reply, isUser: false });
+          this.messages.push(
+            {
+              text: response.reply,
+              isUser: false
+            }
+          );
         },
         error: (error) => {
           console.error('Error:', error);
-          this.messages.push({ text: 'An error occurred while processing your request.', isUser: false });
+          this.messages.push(
+            {
+              text: 'An error occurred while processing your request.',
+              isUser: false
+            }
+          );
         }
       });
       this.userInput = '';
