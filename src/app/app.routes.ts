@@ -7,7 +7,7 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: '',
+        path: '**',
         redirectTo: '/chat',
         pathMatch: 'full'
     }
